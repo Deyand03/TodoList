@@ -7,6 +7,10 @@ const countSticky = $('#count-sticky');
 const dashboard = $('#dashboard');
 const btnMenu = $('#btn-dashboard');
 const menu = $('#menu');
+const light = $('#light-button');
+const dark = $('#dark-button')
+const choiceMode = $('.pilihan-mode');
+let isButtonDisable = false;
 const stickyColors = {
     pink: function(color){
         return color.style.backgroundColor = "#FFA29B"
@@ -38,3 +42,10 @@ document.querySelectorAll('.btn-drop').forEach(button => {
         iconDrop.style.transition = "all 0.3s ease-in-out"
     });
 });
+
+light.addEventListener('click', () => {
+    choiceMode.style.transform = "translateX(10%) translateY(20%)"
+})
+dark.addEventListener('click', () => {
+    choiceMode.style.transform = "translateX(110%) translateY(20%)"
+})

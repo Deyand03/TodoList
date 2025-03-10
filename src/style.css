@@ -119,6 +119,7 @@
     transition: all 0.15s;
 }
 .list-items:hover{
+    background-color: var(--my-color);
     transform: translateY(-2px);
     box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
@@ -129,4 +130,11 @@
     box-shadow: 0px 0px 40px 1px rgba(0,0,0,0.28);
 -webkit-box-shadow: 0px 0px 40px 1px rgba(0,0,0,0.28);
 -moz-box-shadow: 0px 0px 40px 1px rgba(0,0,0,0.28);
+}
+.pilihan-mode{
+    transition: all 0.3s ease-in-out;
+    transform: translateX(10%) translateY(20%);
+    box-shadow: 0px 7px 21px -15px rgba(255,255,255,0.75);
+-webkit-box-shadow: 0px 7px 21px -15px rgba(255,255,255,0.75);
+-moz-box-shadow: 0px 7px 21px -15px rgba(255,255,255,0.75);
 }
