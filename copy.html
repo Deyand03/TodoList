@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DeyTodo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lily+Script+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css">
+    <style>
+        :root {
+            --bg-primary: #1A1A1D;
+            --bg-secondary: rgba(56,55,56,0.4);
+            --my-color: #6A1E55;
+            --front-color: #A64D79;
+            --font-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--bg-primary);font-family: 'exo 2';">
+    <div class="container-fluid overflow-hidden d-flex p-0">
+        <!-- Menu Dashboard -->
+        <div class="vh-100 rounded-end p-2 bg-dashboard" style="width: 20%;background-color: var(--bg-primary)" id="dashboard">
+            <div class="d-flex flex-column gap-2" style="height: 100%;">
+                <!-- Heading -->
+                <div class="rounded pt-2 pb-3 px-2 text-light">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <span class="fs-4 heading" style="font-family: 'Lily Script One';">Deytodo</span>
+                    </div>
+                </div>
+                <!-- Heading -->
+
+                <div class="d-flex flex-column justify-content-between rounded" style="height: 100%;">
+                    <!-- Content Dashboard -->
+                    <div class="shadow rounded d-flex flex-column gap-2 overflow-hidden" style="background-color: var(--bg-secondary);">
+                        <div class="d-flex justify-content-between align-items-center todolist px-2 py-1">
+                            <button class="btn btn-drop d-flex justify-content-between border-0 px-0"
+                                style="width: 100%;" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                                        <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+                                    </svg>
+                                    <span class="fw-semibold">Todo List</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded d-flex justify-content-center align-items-center"
+                                        style="width: 20px;background-color: var(--my-color);">
+                                        <span class="fw-semibold" id="count-list">4</span>
+                                    </div>
+                                    <div class="icon-drop">
+                                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 1L5 5L1 1" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <!-- List Todo Head -->
+                        <div class="collapse multi-collapse show" id="collapse1">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <button class="d-flex justify-content-center align-items-center gap-2 btn-add ms-2 p-1 px-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
+                                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                                    </svg>
+                                    <span class="fw-semibold" style="font-size: 13px;">Add List</span>
+                                </button>
+                            </div>
+
+                            <!-- List Todo -->
+                            <div class="d-flex flex-column gap-1 list-unstyled ms-2 pb-1 fw-medium rounded list-sticky" style="max-height: 150px;">
+                                <div class="rounded list-items mt-1" style="background-color: rgba(156, 37, 125, 0.7);">
+                                    <button class="btn d-flex align-items-center gap-3 p-2 py-1 border-0" style="width: 100%;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/></svg>
+                                        <span>Life</span>
+                                    </button>
+                                </div>
+                                <div class="rounded list-items">
+                                    <div class="btn d-flex align-items-center gap-3 p-2 py-1 border-0" style="width: 100%;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pc-display" viewBox="0 0 16 16"><path d="M8 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1zm1 13.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0M9.5 1a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM9 3.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5M1.5 2A1.5 1.5 0 0 0 0 3.5v7A1.5 1.5 0 0 0 1.5 12H6v2h-.5a.5.5 0 0 0 0 1H7v-4H1.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5H7V2z"/></svg>
+                                        <span>Work</span>
+                                    </div>
+                                </div>
+                                <div class="rounded list-items">
+                                    <div class="btn d-flex align-items-center gap-3 p-2 py-1 border-0" style="width: 100%;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16"><path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2"/><path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0"/></svg>
+                                        <span>Project A</span>
+                                    </div>
+                                </div>
+                                <div class="rounded list-items">
+                                    <div class="btn d-flex align-items-center gap-3 p-2 py-1 border-0" style="width: 100%;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16"><path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2"/><path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0"/></svg>
+                                        <span>Project B</span>
+                                    </div>
+                                </div>
+                                <div class="rounded list-items">
+                                    <div class="btn d-flex align-items-center gap-3 p-2 py-1 border-0" style="width: 100%;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16"><path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2"/><path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0"/></svg>
+                                        <span>Project C</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- List Todo End -->
+
+                        <!-- Sticky Wall -->
+                        <div class="d-flex justify-content-between align-items-center todolist px-2 py-1">
+                            <button class="btn btn-drop d-flex justify-content-between border-0 px-0"
+                                style="width: 100%;" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                <div class="d-flex align-items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sticky" viewBox="0 0 16 16">
+                                        <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293z"/>
+                                    </svg>
+                                    <span class="fw-semibold">Sticky Wall</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded d-flex justify-content-center align-items-center"
+                                        style="background-color: var(--my-color);width: 20px;">
+                                        <span class="fw-semibold" id="count-sticky">3</span>
+                                    </div>
+                                    <div class="icon-drop">
+                                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 1L5 5L1 1" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- List Sticky Head -->
+                        <div class="collapse multi-collapse show" id="collapse2">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <button class="d-flex align-items-center gap-2 btn-add ms-2 p-1 px-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
+                                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                                    </svg>
+                                    <span class="fw-semibold" style="font-size: 13px;">Add Note</span>
+                                </button>
+                            </div>
+                            <!-- List Sticky -->
+                            <div class="d-flex flex-column gap-1 list-unstyled ms-2 mb-1 fw-medium rounded list-sticky" style="max-height: 105px;">
+                                <div class="d-flex gap-2">
+                                    <div class="rounded"
+                                        style="width: 24px;height: 24px; background-color: #FFA29B !important;">
+                                    </div>
+                                    <span id="judul1">Judul</span>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div class="rounded"
+                                        style="width: 24px;height: 24px; background-color: #FFA29B !important;">
+                                    </div>
+                                    <span id="judul1">Judul</span>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div class="rounded"
+                                        style="width: 24px;height: 24px; background-color: #FFA29B !important;">
+                                    </div>
+                                    <span id="judul1">Judul</span>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div class="rounded"
+                                        style="width: 24px;height: 24px; background-color: #FFA29B !important;">
+                                    </div>
+                                    <span id="judul1">Judul</span>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div class="rounded"
+                                        style="width: 24px;height: 24px; background-color: #FFA29B !important;">
+                                    </div>
+                                    <span id="judul1">Judul</span>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div class="rounded"
+                                        style="width: 24px;height: 24px; background-color: #FFA29B !important;">
+                                    </div>
+                                    <span id="judul1">Judul</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- List Sticky End -->
+                    </div>
+                    <!-- Content End -->
+
+                    <!-- Footer -->
+                    <div class="shadow rounded py-1 px-2 d-flex flex-column gap-2 border-list overflow-hidden"
+                        style="background-color: var(--bg-secondary);">
+                        <div class="d-flex">
+                            <button class="btn col-6">Light</button>
+                            <button class="btn col-6" style="background-color: #6A1E55;">Dark</button>
+                        </div>
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+        <!-- Menu Dashboard End -->
+
+        <!-- Content -->
+        <div class="p-3 d-flex flex-column" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="fw-semibold fs-5">Welcome back, ...</span>
+                </div>
+                <div>
+                    <span>07/01/2003</span>
+                    <span>(Logo)</span>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between" style="width: 100%;font-family: 'exo 2';">
+                <div class="d-flex flex-column gap-2 align-items-center rounded border-putus" style="width: 32%;">
+                    <div class="d-flex justify-content-between align-items-center px-2 py-1" style="color: var(--font-color);width: 100%;">
+                        <span class="fw-semibold">To do</span>
+                        <div>
+                            <button class="d-flex justify-content-center align-items-center gap-2 btn-add ms-2 p-1 px-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
+                                    <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                                    <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;" >
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column gap-2 align-items-center rounded border-putus" style="width: 32%;">
+                    <div class="d-flex justify-content-between align-items-center px-2 py-1" style="color: var(--font-color);width: 100%;">
+                        <span class="fw-semibold">In Progress</span>
+                        <div>
+                            <button class="d-flex justify-content-center align-items-center gap-2 btn-add ms-2 p-1 px-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
+                                    <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                                    <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                                  </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;" >
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;" >
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;" >
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column gap-2 align-items-center rounded border-putus" style="width: 32%;">
+                    <div class="d-flex justify-content-between align-items-center px-2 py-1" style="color: var(--font-color);width: 100%;">
+                        <span class="fw-semibold">Done</span>
+                        <div>
+                            <button class="d-flex justify-content-center align-items-center gap-2 btn-add ms-2 p-1 px-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+                                    <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                                    <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                                </svg>
+                            </button>
+                            
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;" >
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;" >
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;" >
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content -->
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
