@@ -29,40 +29,47 @@ const iconList = {
         return icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16"><path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2"/><path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0"/></svg>`
     }
 }
-document.querySelectorAll('.btn-drop').forEach(button => {
-    let count = 0;
-    button.addEventListener('click', () => {
-        const iconDrop = button.querySelector('.icon-drop');
-        if (count == 0) {
-            iconDrop.style.transform = "rotate(-90deg)";
-            count++;
-        } else {
-            iconDrop.style.transform = "rotate(0deg)";
-            count--;
-        }
-        iconDrop.style.transition = "all 0.3s ease-in-out"
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.btn-drop').forEach(button => {
+        let count = 0;
+        button.addEventListener('click', () => {
+            const iconDrop = button.querySelector('.icon-drop');
+            if (count == 0) {
+                iconDrop.style.transform = "rotate(-90deg)";
+                count++;
+            } else {
+                iconDrop.style.transform = "rotate(0deg)";
+                count--;
+            }
+            iconDrop.style.transition = "all 0.3s ease-in-out"
+        });
     });
+    
+    light.addEventListener('click', () => {
+        choiceMode.style.transform = "translateX(0%)"
+        dark.style.opacity = "0.5";
+        light.style.opacity = "1";
+    });
+    dark.addEventListener('click', () => {
+        choiceMode.style.transform = "translateX(100%)"
+        dark.style.opacity = "1";
+        light.style.opacity = "0.5";
+    });
+    
+    function hours(){
+        const clock = new Date();
+        let h = clock.getHours();
+        let m = clock.getMinutes();
+        let s = clock.getSeconds();
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+        time.textContent = `${h} : ${m} : ${s}`
+        setTimeout(hours, 1000);
+    }
+    function checkTime(i){
+        if(i < 10){i = "0" + i;}
+        return i;
+    }
+    hours();
 });
-
-light.addEventListener('click', () => {
-    choiceMode.style.transform = "translateX(10%) translateY(20%)"
-});
-dark.addEventListener('click', () => {
-    choiceMode.style.transform = "translateX(110%) translateY(20%)"
-});
-
-function hours(){
-    const clock = new Date();
-    let h = clock.getHours();
-    let m = clock.getMinutes();
-    let s = clock.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    time.textContent = `${h} : ${m} : ${s}`
-    setTimeout(hours, 1000);
-}
-function checkTime(i){
-    if(i < 10){i = "0" + i;}
-    return i;
-}
-hours();

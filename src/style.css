@@ -134,15 +134,16 @@
 -moz-box-shadow: 0px 0px 40px 1px rgba(0,0,0,0.28);
 }
 .pilihan-mode{
+    transform: translateX(100%);
     transition: all 0.3s ease-in-out;
-    transform: translateX(10%) translateY(20%);
-    box-shadow: 0px 7px 21px -15px rgba(255,255,255,0.75);
--webkit-box-shadow: 0px 7px 21px -15px rgba(255,255,255,0.75);
--moz-box-shadow: 0px 7px 21px -15px rgba(255,255,255,0.75);
+    box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.75);
 }
 .time{
     border: 1px solid rgba(255,255,255,0.3);
     box-shadow: 
     2px 2px 4px 2px rgba(0,0,0,0.75),
     -1px -1px 4px 1px rgba(255,255,255,0.75);
-}   
+}
+#light-button, #dark-button{
+    transition: all 0.3s ease-in-out;
+}
