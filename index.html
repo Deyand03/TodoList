@@ -24,9 +24,9 @@
 </head>
 
 <body style="background-color: var(--bg-primary);font-family: 'exo 2';">
-    <div class="container-fluid overflow-hidden d-flex p-0">
+    <div class="container-fluid overflow-hidden d-flex p-0 vh-100">
         <!-- Menu Dashboard -->
-        <div class="vh-100 rounded-end p-2 bg-dashboard" style="width: 20%;background-color: var(--bg-primary)" id="dashboard">
+        <div class="rounded-end p-2 bg-dashboard" style="width: 20%;background-color: var(--bg-primary)" id="dashboard">
             <div class="d-flex flex-column gap-2" style="height: 100%;">
                 <!-- Heading -->
                 <div class="rounded pt-2 pb-3 px-2 text-light">
@@ -217,21 +217,32 @@
         <!-- Menu Dashboard End -->
 
         <!-- Content -->
-        <div class="p-3 d-flex flex-column" style="width: 100%;">
+        <div class="p-3 pb-0 d-flex flex-column" style="width: 100%;">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <span class="fw-semibold fs-5">Welcome back, ...</span>
+                    <span class="fw-semibold fs-5">Welcome back, <span id="username">...</span></span>
                 </div>
-                <div>
-                    <span>07/01/2003</span>
-                    <span>(Logo)</span>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex justify-content-center p-2 rounded time" style="background-color: #1a1a1d;width: 5.5rem;">
+                        <span class="fw-semibold" id="time" style="font-family: 'digital';">Time</span>
+                    </div>
+                    <button class="btn p-0 rounded-circle">
+                        <div class="rounded-circle aspect-ratio 1/1 overflow-hidden p-0" style="width: 50px;height: 50px;">
+                            <img src="https://ljpuk.net/wp-content/uploads/2024/09/dsc05721-1-1.jpg?w=1024" style="max-width: 100%;height: 100%;" alt="">
+                        </div>
+                    </button>
                 </div>
             </div>
-            <hr>
+            <hr class="mt-1">
             <div class="d-flex justify-content-between" style="width: 100%;font-family: 'exo 2';">
                 <div class="d-flex flex-column gap-2 align-items-center rounded border-putus" style="width: 32%;">
                     <div class="d-flex justify-content-between align-items-center px-2 py-1" style="color: var(--font-color);width: 100%;">
-                        <span class="fw-semibold">To do</span>
+                        <div class="d-flex gap-2">
+                            <span class="fw-semibold">To do</span>
+                            <div class="rounded d-flex justify-content-center align-items-center" style="width: 20px;background-color: var(--my-color);">
+                                <span class="fw-semibold text-light" id="count-todo">0</span>
+                            </div>
+                        </div>
                         <div>
                             <button class="d-flex justify-content-center align-items-center gap-2 btn-add ms-2 p-1 px-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
@@ -242,19 +253,20 @@
                             </button>
                         </div>
                     </div>
-                    <div class="card" style="width: 100%;" >
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
+                    <!-- Jika Card Empty munculkan -->
+                    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
+                        <span class="fs-4" style="color: rgba(255, 255, 255, 0.5);">Empty</span>
                     </div>
+                    <!--  -->
                 </div>
                 <div class="d-flex flex-column gap-2 align-items-center rounded border-putus" style="width: 32%;">
                     <div class="d-flex justify-content-between align-items-center px-2 py-1" style="color: var(--font-color);width: 100%;">
-                        <span class="fw-semibold">In Progress</span>
+                        <div class="d-flex gap-2">
+                            <span class="fw-semibold">In Progress</span>
+                            <div class="rounded d-flex justify-content-center align-items-center" style="width: 20px;background-color: var(--my-color);">
+                                <span class="fw-semibold text-light" id="count-progress">3</span>
+                            </div>
+                        </div>
                         <div>
                             <button class="d-flex justify-content-center align-items-center gap-2 btn-add ms-2 p-1 px-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
@@ -264,37 +276,49 @@
                             </button>
                         </div>
                     </div>
-                    <div class="card" style="width: 100%;" >
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
+                    <!-- Jika Card Empty munculkan -->
+                    <div class="d-flex flex-column justify-content-center align-items-center d-none" style="height: 100%;">
+                        <span class="fs-4" style="color: rgba(255, 255, 255, 0.5);">Empty</span>
                     </div>
-                    <div class="card" style="width: 100%;" >
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
+                    <!--  -->
+                    <div class="d-flex flex-column gap-2 rounded p-0 border-putus">
+                        <div class="card" style="width: 100%;" >
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card" style="width: 100%;" >
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
+                        <div class="card" style="width: 100%;" >
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 100%;" >
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex flex-column gap-2 align-items-center rounded border-putus" style="width: 32%;">
                     <div class="d-flex justify-content-between align-items-center px-2 py-1" style="color: var(--font-color);width: 100%;">
-                        <span class="fw-semibold">Done</span>
+                        <div class="d-flex gap-2">
+                            <span class="fw-semibold">Done</span>
+                            <div class="rounded d-flex justify-content-center align-items-center" style="width: 20px;background-color: var(--my-color);">
+                                <span class="fw-semibold text-light" id="count-done">3</span>
+                            </div>
+                        </div>
                         <div>
                             <button class="d-flex justify-content-center align-items-center gap-2 btn-add ms-2 p-1 px-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
@@ -303,34 +327,35 @@
                                     <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
                                 </svg>
                             </button>
-                            
                         </div>
                     </div>
-                    <div class="card" style="width: 100%;" >
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
+                    <div class="d-flex flex-column gap-2 rounded p-0 border-putus">
+                        <div class="card" style="width: 100%;" >
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card" style="width: 100%;" >
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
+                        <div class="card" style="width: 100%;" >
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card" style="width: 100%;" >
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
+                        <div class="card" style="width: 100%;" >
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                            </div>
                         </div>
                     </div>
                 </div>

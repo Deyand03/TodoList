@@ -2,6 +2,7 @@ const $ = (selector) => {
     return document.querySelector(selector);
 };
 
+const time = $('#time');
 const countList = $('#count-list');
 const countSticky = $('#count-sticky');
 const dashboard = $('#dashboard');
@@ -45,7 +46,23 @@ document.querySelectorAll('.btn-drop').forEach(button => {
 
 light.addEventListener('click', () => {
     choiceMode.style.transform = "translateX(10%) translateY(20%)"
-})
+});
 dark.addEventListener('click', () => {
     choiceMode.style.transform = "translateX(110%) translateY(20%)"
-})
+});
+
+function hours(){
+    const clock = new Date();
+    let h = clock.getHours();
+    let m = clock.getMinutes();
+    let s = clock.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    time.textContent = `${h} : ${m} : ${s}`
+    setTimeout(hours, 1000);
+}
+function checkTime(i){
+    if(i < 10){i = "0" + i;}
+    return i;
+}
+hours();
